@@ -1,0 +1,9 @@
+POST http://localhost:1502/events
+Content-Type: application/json
+
+{
+  "title": "Racha da Matriz",
+  "slug": "racha-da-matriz",
+  "details": "Racha de futsal semanal realizado na praça da matriz entre amigos",
+  "maximumAttendees": 20
+}
