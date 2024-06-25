@@ -2,8 +2,24 @@ POST http://localhost:1502/events
 Content-Type: application/json
 
 {
-  "title": "Racha da Matriz",
-  "slug": "racha-da-matriz",
-  "details": "Racha de futsal semanal realizado na praça da matriz entre amigos",
+  "title": "Vôlei na arena",
+  "details": "Partida de vôlei entre amigos na arena fitness",
   "maximumAttendees": 20
 }
+
+### 
+POST http://localhost:1502/events/9559e695-ac35-49cd-9173-766ebc971e90/attendees
+Content-Type: application/json
+
+{
+  "name": "Shelldon Ryan",
+  "email": "shelldon.boy15@gmail.com"
+}
+
+###
+
+GET http://localhost:1502/events/9559e695-ac35-49cd-9173-766ebc971e90
+
+###
+
+GET http://localhost:1502/attendees/1/badge
