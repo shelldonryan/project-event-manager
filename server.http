@@ -12,8 +12,8 @@ POST http://localhost:1502/events/9559e695-ac35-49cd-9173-766ebc971e90/attendees
 Content-Type: application/json
 
 {
-  "name": "Shelldon Ryan",
-  "email": "shelldon.boy15@gmail.com"
+  "name": "Tawan de Sousa",
+  "email": "eutawan@gmail.com"
 }
 
 ###
@@ -22,7 +22,7 @@ GET http://localhost:1502/events/9559e695-ac35-49cd-9173-766ebc971e90
 
 ###
 
-GET http://localhost:1502/attendees/1/badge
+GET http://localhost:1502/attendees/2/badge
 
 ###
 

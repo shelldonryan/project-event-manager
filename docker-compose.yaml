@@ -1,0 +1,11 @@
+version: '3.7'
+
+services:
+  api-event-manager:
+    build: 
+      context: .
+    container_name: api-event-manager
+    ports:
+      - 1502:1502
+    environment:
+      - DATABASE_URL=file:./dev.db
