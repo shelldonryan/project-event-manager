@@ -21,5 +21,8 @@ COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/package.json ./package.json
 COPY --from=build /usr/src/app/prisma ./prisma
 RUN pnpm prisma generate
+RUN apk update
+RUN apk add --no-cache curl
+RUN curl -sSL -o wait-for https://raw.githubusercontent.com/eficode/wait-for/v2.2.3/wait-for
+RUN chmod u+x ./wait-for
 EXPOSE 1502
-CMD ["pnpm", "start"]

@@ -1,11 +1,38 @@
 version: '3.7'
 
 services:
+
+  postgres:
+    image: postgres:16.2-alpine3.19
+    container_name: db-event-manager
+    ports:
+      - 5440:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=passin
+      - POSTGRES_PASSWORD=admin
+    volumes:
+      - 'db:/var/lib/postgresql/data'
+    networks:
+      - passin
+
   api-event-manager:
     build: 
       context: .
     container_name: api-event-manager
+    entrypoint: sh -c './wait-for postgres:5440 -- pnpm start'
     ports:
       - 1502:1502
     environment:
-      - DATABASE_URL=file:./dev.db
+      - DATABASE_URL=postgresql://admin:admin@postgres:5432/passin
+    depends_on:
+      - postgres
+    networks:
+      - passin
+
+networks:
+  passin:
+    driver: bridge
+
+volumes:
+  db:
