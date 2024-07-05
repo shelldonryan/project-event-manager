@@ -1,0 +1,25 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  build-and-push:
+    name: 'Build and Push'
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Build the Docker image
+      uses: actions/checkout@v4]
+
+    - name: Generate SHA
+      id: generate_sha
+      run: | 
+        SHA=(echo $GITHUB_SHA | head -c7)
+        echo "sha=$SHA" >> $GITHUB_OUTPUT
+
+    - name: Build docker image
+      run: docker build -t shelldonryan/project-event-manager:${{ steps.generate_sha.outputs.sha }} .
+      
