@@ -31,6 +31,8 @@ jobs:
     - name: Push image
       run: |
         docker push shelldonryan/project-event-manager:${{ steps.generate_sha.outputs.sha }}
+        docker tag shelldonryan/project-event-manager:${{ steps.generate_sha.outputs.sha }} shelldonryan/project-event-manager:latest
+        docker push shelldonryan/project-event-manager:latest
 
     
       
