@@ -22,5 +22,15 @@ jobs:
     - name: Build docker image
       run: docker build -t shelldonryan/project-event-manager:${{ steps.generate_sha.outputs.sha }} .
 
+    - name: log into the container registry
+      uses: docker/login-action@v3
+      with:
+        username: ${{ variables.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    
+    - name: Push image
+      run: |
+        docker push shelldonryan/project-event-manager:${{ steps.generate_sha.outoputs.sha }}
+
     
       
