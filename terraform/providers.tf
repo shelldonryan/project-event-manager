@@ -1,11 +1,13 @@
-provider "digitalocean" {
-  token = var.do_token
-}
+# provider "digitalocean" {
+#   token = var.do_token
+# }
+
+# provider "gcp" {
+
+# }
 
 provider "aws" {
-  
-}
-
-provider "gcp" {
-  
+  region     = var.AWS_REGION
+  access_key = var.AWS_ACCESS_KEY_ID
+  secret_key = var.AWS_SECRET_ACCESS_KEY
 }
